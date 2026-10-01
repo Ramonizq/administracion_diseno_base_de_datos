@@ -368,4 +368,17 @@ b. Importar datos adicionales de autores desde un archivo CSV externo.
 ```sql
 biblioteca=# \copy autores(nombre, nacionalidad) FROM '/tmp/autores.csv' WITH (FORMAT csv, HEADER, DELIMITER ',');
 COPY 2
-````
+```
+En esta consulta se observa como se han añadido los dos autores que incluia el fichero
+
+```sql
+biblioteca=# SELECT * FROM autores ORDER BY id_autor DESC LIMIT 5;
+ id_autor |       nombre       | nacionalidad 
+----------+--------------------+--------------
+        7 | Mario Vargas Llosa | Peruana
+        6 | Julio Cortázar     | Argentina
+        5 | Jane Austen        | Británica
+        4 | Isabel Allende     | Chilena
+        3 | George Orwell      | Británica
+(5 rows)
+```
